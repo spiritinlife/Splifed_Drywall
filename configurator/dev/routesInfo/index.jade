@@ -1,0 +1,25 @@
+extends ../../../layouts/default
+
+block head
+  title Routes description - Development
+
+
+block body
+  h1 Routes Description - For development only
+  each route, i in routes
+    table(style="border : 1px solid black ; margin : 3px;")
+      tr
+        th(style='width: '+(100/2)+'%') Method
+        td= route.method
+      tr
+        th(style='width: '+(100/2)+'%') Url
+        td= route.url
+      tr
+        th(style='width: '+(100/2)+'%') Description
+        td= route.desc
+      tr
+        th(style='width: '+(100/2)+'%') passport
+        td= route.passport
+      tr
+        th(style='width: '+(100/2)+'%') filepath
+        td= route.filepath

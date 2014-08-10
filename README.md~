@@ -4,7 +4,6 @@ Splifed_Drywall
 This repo is a restructure of the drywall project.
 From the issue in the jedireza/drywall project named Structural proposition (https://github.com/jedireza/drywall/issues/212).
 
-
 SO first my file hierarchy and with * are things i have changed :
 -configurator *
 -controllers *
@@ -31,7 +30,7 @@ Now on more details
 2)Schemas now exist in the models folder with a small change.Every schema file used to have a app.db.model(model.modelName, model.schema); statement .I have removed this statement from all of them and i have added two new ,1 for the description of the schema and one for the model's name.The models creation is now implemented in the configurator/models.js which sole purpose is to iterate through the files of the schemas folder and create all the models.It also keeps them in an array and it is able to write them to the console for debugging purposes specifying the model's name and description.
 3)As i said models and controllers have the exact same folders.
 Controllers now are splitted in many files to define different operations.For example, in the views/account/settings used to be an index.js which defined all operation over the account settings eg connect with fb,google,update account,identify etc.In my implementation all this logic is moved to controllers/account/settings and every function is now a file eg i have a file named connectFacebook.js,connectGithub.js,identify.js,update.js. Those files though follow a certain pattern which let the configurator/routes.js define the appropriate routes and handlers.This pattern is the following:
-```javascript
+
 module.exports = {
     method : "GET",
     url : ["/account/settings/facebook/"],
@@ -43,7 +42,6 @@ module.exports = {
     handler : function(req, res,next){
         //your code here
         }
-```
 This is from the controllers/account/settings/connectFacebook.js
 As you see i export a javascript object which defines the method,the urls.the description,if passport authentication is required and the handler.
 
